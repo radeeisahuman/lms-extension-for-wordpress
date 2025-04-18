@@ -1,0 +1,5 @@
+# Free LMS System for Woocommerce
+
+This project is to provide an LMS to a wordpress website without relying on plugins like Tutor LMS. The idea is to improve the performance of the site and saving of memory through the use of a lightweight solution. I want to make the actual courses encoded and not store them in memory. I have some ideas. Base64 encoding and store in the database paired with hashing for effective fetching of data.
+
+First step is connect the site with the wordpress database. Simple enough. Then add code to the woocommerce website so that upon orders we send a post request. Process the post request to enroll the learner in the course. If I want to take it one step further I could just send a request to the wordpress website so that it can confirm the order and maybe send some kind of notification to the learner.
