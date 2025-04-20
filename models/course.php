@@ -3,19 +3,13 @@
 abstract class Course{
     private int $id;
     private string $course_title;
-    private int $instructor_id;
     private string $course_duration;
-    private int $product_id;
 
-    public function __construct(int $id, string $course_title, int $instructor_id, string $course_duration){
+    public function __construct(int $id, string $course_title, string $course_duration){
         $this->id = $id;
         $this->course_title = $course_title;
         $this->instructor_id = $instructor_id;
         $this->course_duration = $course_duration;
-    }
-
-    public function set_id(int $product_id){
-        $this->product_id = $product_id;
     }
 
     abstract public function add_course(): void;
