@@ -6,7 +6,7 @@ interface EnrollmentObserver{
 
 }
 
-class ConfirmEnrollment{
+class ConfirmEnrollment implements EnrollmentObserver{
 
     public function update(): void{
         echo "Enrollment Confirmed";
@@ -14,7 +14,7 @@ class ConfirmEnrollment{
 
 }
 
-class NotifyLearner{
+class NotifyLearner implements EnrollmentObserver{
 
     public function update(): void{
         echo "Learner Notified";
@@ -22,7 +22,7 @@ class NotifyLearner{
 
 }
 
-class NotifySystem{
+class NotifySystem implements EnrollmentObserver{
 
     public function update(): void{
         echo "System Notified";
@@ -33,15 +33,15 @@ class NotifySystem{
 class Enrollment{
     private array $observers=[];
 
-    public function register(Observer $observer){
+    public function register(EnrollmentObserver $observer){
         $this->observers[] = $observer;
     }
 
-    public function unregister(Observer $observer){
+    public function unregister(EnrollmentObserver $observer){
         $this->observers = array_filter($this->observers, fn($obs) => $observer !== $obs);
     }
 
-    public function notify(Observer $observer){
+    public function notify(EnrollmentObserver $observer){
         $observer->update();
     }
 }
