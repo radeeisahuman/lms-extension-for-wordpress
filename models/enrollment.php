@@ -2,13 +2,13 @@
 
 interface EnrollmentObserver{
 
-    public function update(): void;
+    public function update(PDO $db): void;
 
 }
 
 class ConfirmEnrollment implements EnrollmentObserver{
 
-    public function update(): void{
+    public function update(PDO $db): void{
         echo "Enrollment Confirmed";
     }
 
@@ -16,7 +16,7 @@ class ConfirmEnrollment implements EnrollmentObserver{
 
 class NotifyLearner implements EnrollmentObserver{
 
-    public function update(): void{
+    public function update(PDO $db): void{
         echo "Learner Notified";
     }
 
@@ -24,7 +24,7 @@ class NotifyLearner implements EnrollmentObserver{
 
 class NotifySystem implements EnrollmentObserver{
 
-    public function update(): void{
+    public function update(PDO $db): void{
         echo "System Notified";
     }
 
